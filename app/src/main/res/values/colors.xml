@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1A1A1A</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!-- Colors for calculator application -->
+    <color name="calcBackground">#000000</color>
+    <color name="calcBackground2">#FFFFFF</color>
+    <color name="buttonBackground">#373737</color>
+    <color name="button2Background">#8C8C8C</color>
+    <color name="operatorButtonBackground">#C33126</color>
+    <color name="displayNumBackground">#CECECE</color>
+    <color name="displayNumText">#000000</color>
+    <color name="buttonText">#FFFFFF</color>
+</resources>
