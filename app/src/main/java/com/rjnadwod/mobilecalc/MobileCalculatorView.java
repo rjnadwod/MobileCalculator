@@ -61,7 +61,12 @@ public class MobileCalculatorView extends Fragment {
 
     public void setResult(String result) {
         //Set the text of tvOutput to the result provided by the Presenter
-        ((TextView)root.findViewById(R.id.tvOutput)).setText(result);
+        if (result.length() < 10) {
+            ((TextView) root.findViewById(R.id.tvOutput)).setText(result);
+        } else {
+            ((TextView) root.findViewById(R.id.tvOutput)).setText(result);
+            ((TextView) root.findViewById(R.id.tvOutput)).setTextSize(30);
+        }
     }
 
     /**

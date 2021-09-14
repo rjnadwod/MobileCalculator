@@ -83,6 +83,12 @@ public class MobileCalculatorPresenter {
         //Create empty result
         String res = "";
 
+        //Replace % with # to do modulo operation with mXparser library
+        //since mXparser uses #
+        if (expression.contains("%")) {
+            expression = expression.replace("%", "#");
+        }
+
         //Call Model's calculateExpression function to
         //calculate the expression and get a result
         res = mModel.calculateExpression(expression);
@@ -92,6 +98,13 @@ public class MobileCalculatorPresenter {
 
         //Set the tvOutput view text to the result from
         //the model calculateExpression function
-        mView.setResult(res);
+
+        //If the result ends with .0, truncate the .0 and return to view
+        //Else if the result does not end with .0, keep the decimal and trailing numbers
+        if (res.endsWith(".0")) {
+            mView.setResult(res.substring(0, res.length() - 2));
+        } else {
+            mView.setResult(res);
+        }
     }
 }
