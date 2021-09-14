@@ -109,43 +109,24 @@ public class MobileCalculatorView extends Fragment {
         AppCompatButton btnEqual = root.findViewById(R.id.btnEqual);
 
         btnClear.setOnClickListener(view -> mPresenter.clearDisplay());
-
         btn1.setOnClickListener(view -> mPresenter.appendNum("1"));
-
         btn2.setOnClickListener(view -> mPresenter.appendNum("2"));
-
         btn3.setOnClickListener(view -> mPresenter.appendNum("3"));
-
         btn4.setOnClickListener(view -> mPresenter.appendNum("4"));
-
         btn5.setOnClickListener(view -> mPresenter.appendNum("5"));
-
         btn6.setOnClickListener(view -> mPresenter.appendNum("6"));
-
         btn7.setOnClickListener(view -> mPresenter.appendNum("7"));
-
         btn8.setOnClickListener(view -> mPresenter.appendNum("8"));
-
         btn9.setOnClickListener(view -> mPresenter.appendNum("9"));
-
         btn0.setOnClickListener(view -> mPresenter.appendNum("0"));
-
         btnDecimal.setOnClickListener(view -> mPresenter.addDecimal());
-
         btnPlus.setOnClickListener(view -> mPresenter.addOperator("+"));
-
         btnMinus.setOnClickListener(view -> mPresenter.addOperator("-"));
-
         btnMultiply.setOnClickListener(view -> mPresenter.addOperator("*"));
-
         btnDivide.setOnClickListener(view -> mPresenter.addOperator("/"));
-
         btnMod.setOnClickListener(view -> mPresenter.addOperator("%"));
-
         btnBackspace.setOnClickListener(view -> mPresenter.backspace());
-
         btnPosNeg.setOnClickListener(view -> mPresenter.numSign());
-
         btnEqual.setOnClickListener(view -> mPresenter.equalsClicked());
 
         return root;
