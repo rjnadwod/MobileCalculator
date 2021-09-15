@@ -25,6 +25,16 @@ public class InstrumentedTest {
         ActivityScenario.launch(MainActivity.class);
     }
 
+    /*
+    / I found that tests would often fail due to the fact that
+    / buttons were being clicked too quickly after the application
+    / launched, leading to some odd results. For example, givenTest2
+    / would often skip clicking 8 because it occurred too quick and
+    / too early, resulting in -3 as the final answer. To remedy this,
+    / I had the thread sleep for 500ms to give the application enough
+    / time to launch. This resulted in far more consistent test results.
+     */
+
     @Test
     public void givenTest1() throws InterruptedException {
         Thread.sleep(500);
@@ -114,9 +124,6 @@ public class InstrumentedTest {
         onView(withId(R.id.tvOutput)).check(matches(withText("6.666533E9")));
     }
 
-    //This test also fails due to formatting
-    //Expected: 2E-7
-    //Result: 2.0E-7
     @Test
     public void givenTest8() throws InterruptedException {
         Thread.sleep(500);
