@@ -96,13 +96,14 @@ public class MobileCalculatorPresenter {
         //Set the result of the model to the result
         mModel.setResult(Double.parseDouble(res));
 
-        //Set the tvOutput view text to the result from
-        //the model calculateExpression function
         //If the result ends with .0, truncate the .0 and return to view
         //Else if the result does not end with .0, keep the decimal and trailing numbers
         if (res.contains(".0")) {
             res = res.replace(".0", "");
         }
+
+        //Set the tvOutput view text to the result from
+        //the model calculateExpression function
         mView.setResult(res);
     }
 }
