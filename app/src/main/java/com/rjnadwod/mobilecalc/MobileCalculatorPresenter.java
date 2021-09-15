@@ -22,31 +22,44 @@ public class MobileCalculatorPresenter {
     }
 
     public void clearDisplay() {
+        //Clear the values in the calculator model
         mModel.setOperand1(0.0);
         mModel.setOperand2(0.0);
         mModel.setResult(0.0);
+
+        //Set the tvInput display back to "0"
         mView.clearDisplay("0");
     }
 
     public void appendNum(String num) {
+        //Grab the current expression from tvInput
         String currentOperand = mView.getExpression();
+
+        //If the expression equals 0, change 0 to the first number
+        //input by the user
+        //Else, take the current expression and add the new number
+        //to the end of the expressions
         if (currentOperand.equals("0")) {
             currentOperand = num;
         } else {
             currentOperand += num;
         }
-        //mModel.setOperand1(Double.parseDouble(currentOperand));
+
+        //Update the view with the new expression
         mView.setExpression(currentOperand);
     }
 
     public void addDecimal() {
+        //Grab the current expression from the view
         String currentOperand = mView.getExpression();
-        if (!currentOperand.contains(".")) {
-            currentOperand += ".";
-        } else {
-            return;
+
+        //If the current expression contains a decimal,
+        currentOperand += ".";
+        if (currentOperand.contains("..")) {
+            currentOperand = currentOperand.replace("..", ".");
         }
-        //mModel.setOperand1(Double.parseDouble(currentOperand));
+
+        //Update the view with the new expression
         mView.setExpression(currentOperand);
     }
 
