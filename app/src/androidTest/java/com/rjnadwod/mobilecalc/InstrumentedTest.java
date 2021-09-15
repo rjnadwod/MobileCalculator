@@ -1,14 +1,10 @@
 package com.rjnadwod.mobilecalc;
 
 import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
-import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static org.junit.Assert.*;
 
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -30,7 +26,8 @@ public class InstrumentedTest {
     }
 
     @Test
-    public void givenTest1() {
+    public void givenTest1() throws InterruptedException {
+        Thread.sleep(500);
         onView(withId(R.id.btn9)).perform(click());
         onView(withId(R.id.btnPlus)).perform(click());
         onView(withId(R.id.btn4)).perform(click());
@@ -39,7 +36,8 @@ public class InstrumentedTest {
     }
 
     @Test
-    public void givenTest2() {
+    public void givenTest2() throws InterruptedException {
+        Thread.sleep(500);
         onView(withId(R.id.btn8)).perform(click());
         onView(withId(R.id.btnMinus)).perform(click());
         onView(withId(R.id.btn3)).perform(click());
@@ -48,7 +46,8 @@ public class InstrumentedTest {
     }
 
     @Test
-    public void givenTest3() {
+    public void givenTest3() throws InterruptedException {
+        Thread.sleep(500);
         onView(withId(R.id.btn2)).perform(click());
         onView(withId(R.id.btnMultiply)).perform(click());
         onView(withId(R.id.btn8)).perform(click());
@@ -57,7 +56,8 @@ public class InstrumentedTest {
     }
 
     @Test
-    public void givenTest4() {
+    public void givenTest4() throws InterruptedException {
+        Thread.sleep(500);
         onView(withId(R.id.btn2)).perform(click());
         onView(withId(R.id.btn5)).perform(click());
         onView(withId(R.id.btnDivide)).perform(click());
@@ -67,7 +67,8 @@ public class InstrumentedTest {
     }
 
     @Test
-    public void givenTest5() {
+    public void givenTest5() throws InterruptedException {
+        Thread.sleep(500);
         onView(withId(R.id.btn3)).perform(click());
         onView(withId(R.id.btnPosNeg)).perform(click());
         onView(withId(R.id.btnDecimal)).perform(click());
@@ -79,7 +80,8 @@ public class InstrumentedTest {
     }
 
     @Test
-    public void givenTest6() {
+    public void givenTest6() throws InterruptedException {
+        Thread.sleep(500);
         onView(withId(R.id.btn2)).perform(click());
         onView(withId(R.id.btn5)).perform(click());
         onView(withId(R.id.btnMinus)).perform(click());
@@ -95,7 +97,8 @@ public class InstrumentedTest {
     //Expected: 6.666533e9
     //Result: 6.666533334E9
     @Test
-    public void givenTest7() {
+    public void givenTest7() throws InterruptedException {
+        Thread.sleep(500);
         onView(withId(R.id.btn6)).perform(click());
         onView(withId(R.id.btn6)).perform(click());
         onView(withId(R.id.btn6)).perform(click());
@@ -115,7 +118,8 @@ public class InstrumentedTest {
     //Expected: 2E-7
     //Result: 2.0E-7
     @Test
-    public void givenTest8() {
+    public void givenTest8() throws InterruptedException {
+        Thread.sleep(500);
         onView(withId(R.id.btn2)).perform(click());
         onView(withId(R.id.btnDivide)).perform(click());
         onView(withId(R.id.btn1)).perform(click());
@@ -131,7 +135,8 @@ public class InstrumentedTest {
     }
 
     @Test
-    public void givenTest9() {
+    public void givenTest9() throws InterruptedException {
+        Thread.sleep(500);
         onView(withId(R.id.btn2)).perform(click());
         onView(withId(R.id.btn4)).perform(click());
         onView(withId(R.id.btnPlus)).perform(click());
@@ -148,7 +153,8 @@ public class InstrumentedTest {
     }
 
     @Test
-    public void givenTest10() {
+    public void givenTest10() throws InterruptedException {
+        Thread.sleep(500);
         onView(withId(R.id.btn3)).perform(click());
         onView(withId(R.id.btn4)).perform(click());
         onView(withId(R.id.btnPlus)).perform(click());
