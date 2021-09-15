@@ -54,6 +54,8 @@ public class MobileCalculatorPresenter {
         String expression = mView.getExpression();
 
         //Append decimal to current expressions
+        //Checks to make sure the expression does not end with
+        //an operator or . before appending
         if (!(expression.endsWith("+")
                 || expression.endsWith("-")
                 || expression.endsWith("*")
