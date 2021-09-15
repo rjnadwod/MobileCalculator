@@ -1,9 +1,5 @@
 package com.rjnadwod.mobilecalc;
 
-// Math parsing library to help with parsing the expression
-// and performing calculations to avoid complex logic
-import org.mariuszgromada.math.mxparser.*;
-
 public class MobileCalculatorPresenter {
 
     private MobileCalculatorModel mModel;
