@@ -98,13 +98,11 @@ public class MobileCalculatorPresenter {
 
         //Set the tvOutput view text to the result from
         //the model calculateExpression function
-
         //If the result ends with .0, truncate the .0 and return to view
         //Else if the result does not end with .0, keep the decimal and trailing numbers
-        if (res.endsWith(".0")) {
-            mView.setResult(res.substring(0, res.length() - 2));
-        } else {
-            mView.setResult(res);
+        if (res.contains(".0")) {
+            res = res.replace(".0", "");
         }
+        mView.setResult(res);
     }
 }
