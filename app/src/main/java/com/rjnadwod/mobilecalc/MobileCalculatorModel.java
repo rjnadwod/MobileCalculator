@@ -8,6 +8,7 @@ public class MobileCalculatorModel {
     private Double operand1;
     private Double operand2;
     private Double result;
+    private String res;
 
     public void setOperand1(Double operand1) {
         this.operand1 = operand1;
@@ -30,31 +31,30 @@ public class MobileCalculatorModel {
         Expression e = new Expression(expression);
 
         //Calculate the expression, then store the result into a string to return
-        String res = String.valueOf(e.calculate());
+        this.res = String.valueOf(e.calculate());
 
         //Return the result of the calculated expression from mXparser
-        return res;
+        return this.res;
     }
 
     public Double calculate(Operator operator){
-        Double res;
         switch (operator){
             case ADD:
-                res = operand1 + operand2;
+                result = operand1 + operand2;
                 break;
             case SUB:
-                res = operand1 - operand2;
+                result = operand1 - operand2;
                 break;
             case MUL:
-                res = operand1 * operand2;
+                result = operand1 * operand2;
                 break;
             case DIV:
-                res = operand1 / operand2;
+                result = operand1 / operand2;
                 break;
             default:
-                res = 0.0;
+                result = 0.0;
                 break;
         }
-        return res;
+        return result;
     }
 }
