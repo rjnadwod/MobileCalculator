@@ -136,7 +136,10 @@ public class MobileCalculatorPresenter {
 
         //If the result ends with .0, truncate the .0 and return to view
         //Else if the result does not end with .0, keep the decimal and trailing numbers
-        if (res.contains(".0")) {
+        if (res.startsWith("0.")) {
+            mView.setResult(res);
+            return;
+        } else {
             res = res.replace(".0", "");
         }
 
