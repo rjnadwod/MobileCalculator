@@ -26,6 +26,7 @@ public class MobileCalculatorModel {
         result = 0.0;
     }
 
+    //Calculates the expression provided by the Presenter from the View
     public String calculateExpression(String expression) {
         //Create an expression using the mXparser library
         Expression e = new Expression(expression);
@@ -37,6 +38,7 @@ public class MobileCalculatorModel {
         return this.res;
     }
 
+    //Calculate function using for JUnit tests
     public Double calculate(Operator operator){
         switch (operator){
             case ADD:

@@ -1,17 +1,14 @@
 package com.rjnadwod.mobilecalc;
 
 import android.os.Bundle;
-
-import androidx.appcompat.widget.AppCompatButton;
-import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.fragment.app.Fragment;
 
-import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,40 +24,28 @@ public class MobileCalculatorView extends Fragment {
         // Required empty public constructor
     }
 
+    //Grab the expression from the view and return as a string
     public String getExpression() {
         return ((TextView)root.findViewById(R.id.tvExpression)).getText().toString();
     }
 
-    public Operator getOperator() {
-        Operator operator = Operator.ADD;
-        AppCompatButton btn = root.findViewById(R.id.btnEqual);
-        String op = btn.getText().toString();
-        if (op.equals("+"))
-            operator = Operator.ADD;
-        else if(op.equals("-"))
-            operator = Operator.SUB;
-        else if(op.equals("/"))
-            operator = Operator.DIV;
-        else if(op.equals("x"))
-            operator = Operator.MUL;
-        else{
-            Log.e("SimpleCalcView","No Such String");
-        }
-        return operator;
-    }
-
+    //Clear the display of the view
     public void clearDisplay(String result) {
         //Set the input back to 0 and completely clear the output view
         ((TextView)root.findViewById(R.id.tvExpression)).setText(result);
         ((TextView)root.findViewById(R.id.tvOutput)).setText("");
     }
 
+    //Set the expression provided by the Presenter
     public void setExpression(String result) {
         ((TextView)root.findViewById(R.id.tvExpression)).setText(result);
     }
 
+    //Set the result provided by the presenter
     public void setResult(String result) {
         //Set the text of tvOutput to the result provided by the Presenter
+        //If the length of the result is greater than 10 digits, then
+        //set the text and lower the text size
         if (result.length() < 10) {
             ((TextView) root.findViewById(R.id.tvOutput)).setText(result);
         } else {
@@ -87,6 +72,8 @@ public class MobileCalculatorView extends Fragment {
         // Inflate the layout for this fragment
         root = inflater.inflate(R.layout.fragment_mobile_calculator_view, container, false);
 
+        //Create buttons to use for onClickListeners
+        //There is probably a better way to do this...
         AppCompatButton btnClear = root.findViewById(R.id.btnClear);
         AppCompatButton btn1 = root.findViewById(R.id.btn1);
         AppCompatButton btn2 = root.findViewById(R.id.btn2);
@@ -108,6 +95,8 @@ public class MobileCalculatorView extends Fragment {
         AppCompatButton btnPosNeg = root.findViewById(R.id.btnPosNeg);
         AppCompatButton btnEqual = root.findViewById(R.id.btnEqual);
 
+        //Set the onClickListener for each button using lambda expressions
+        //There is probably a better way to do this...
         btnClear.setOnClickListener(view -> mPresenter.clearDisplay());
         btn1.setOnClickListener(view -> mPresenter.appendNum("1"));
         btn2.setOnClickListener(view -> mPresenter.appendNum("2"));
