@@ -51,18 +51,25 @@ public class MobileCalculatorPresenter {
     //Function to add a decimal to the expression
     public void addDecimal() {
         //Grab the current expression from the view
-        String currentOperand = mView.getExpression();
+        String expression = mView.getExpression();
 
         //Append decimal to current expressions
-        currentOperand += ".";
+        if (!(expression.endsWith("+")
+                || expression.endsWith("-")
+                || expression.endsWith("*")
+                || expression.endsWith("/")
+                || expression.endsWith("%")
+                || expression.endsWith("."))) {
+            expression += ".";
+        }
 
         //If user tries to input multiple decimals, replace with single decimal
-        if (currentOperand.contains("..")) {
-            currentOperand = currentOperand.replace("..", ".");
+        if (expression.contains("..")) {
+            expression = expression.replace("..", ".");
         }
 
         //Update the view with the new expression
-        mView.setExpression(currentOperand);
+        mView.setExpression(expression);
     }
 
     //Change the sign of the number (positive or negative)
@@ -87,13 +94,21 @@ public class MobileCalculatorPresenter {
     //Allow the user to add a new operation
     public void addOperator(String op) {
         //Grab the current expression from the view
-        String currentOperand = mView.getExpression();
+        String expression = mView.getExpression();
 
         //Add the new operator to the expression
-        currentOperand += op;
+        //Make sure the last value in the expression is not an operator
+        if (!(expression.endsWith("+")
+                || expression.endsWith("-")
+                || expression.endsWith("*")
+                || expression.endsWith("/")
+                || expression.endsWith("%")
+                || expression.endsWith("."))) {
+            expression += op;
+        }
 
         //Update the view with the new expression
-        mView.setExpression(currentOperand);
+        mView.setExpression(expression);
     }
 
     //Allow user to delete the last input
